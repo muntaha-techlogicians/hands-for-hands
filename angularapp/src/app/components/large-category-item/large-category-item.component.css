@@ -1,0 +1,6 @@
+.click-item:focus{
+  outline:none;
+}
+.promo-description{
+	color: rgba(0,0,0,0.87) !important;
+}

@@ -1,0 +1,26 @@
+<div class="col s12 m4 l4 campaign-category-m-break">
+    <div class="campaign-extra-height-68" style="display: none"></div>
+    <div class="card">
+        <div class="card-content" style="padding: 24px 0;">
+            <span class="camp-details-title" style="padding-left: 24px;">{{ 'donation_statistics'| translate }}</span>
+            <div class="row camp-stats">
+                <div class="col s6 stat-item">
+                    <div class="text">{{ 'target_fund'| translate }}</div>
+                    <div class="data" title="৳ {{(stat?.target_fund)?(stat?.target_fund | number):0}}">৳ {{ stat?.target_fund | donateDigitFormat:2}} </div>
+                </div>
+                <div class="col s6 stat-item">
+                    <div class="text">{{ 'raised_fund'| translate }}</div>
+                    <div class="data" title="৳ {{(stat?.raised_fund)?(stat?.raised_fund | number):0}}">৳ {{ stat?.raised_fund | donateDigitFormat:2}}</div>
+                </div>
+                <div class="col s6 stat-item">
+                    <div class="text">{{ 'total_campaign'| translate }}</div>
+                    <div class="data">{{ (stat?.total_campaign)?(stat?.total_campaign | number):0}}</div>
+                </div>
+                <div class="col s6 stat-item">
+                    <div class="text">{{ 'total_donor'| translate }}</div>
+                    <div class="data">{{ (stat?.total_donor)?(stat?.total_donor | number):0 }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hands For Hands</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" type="image/png" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-512x512.png" sizes="512x512">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection"/>
+    <!--Custom Css-->
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css?v=0.19"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/hover.css?v=0.15"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/index.css?v=0.15"/>
+    <!--
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    -->
+    <style>
+        .camp-title-no{
+            display: flex;
+            justify-content: space-between;
+        }
+        .camp-no {
+            /*position: absolute;
+            right: 23px;
+            top: 10px;*/
+            white-space: nowrap;
+            font-size: 12px;
+            font-weight: 900 !important;
+            display: inline-block;
+            color: #65766d;
+            margin-left: 10px;
+        }
+        .b-img {
+            height: 50px;
+            /*Changed by ahatnum*/
+            width: 50px!important;
+            /*Changed by ahatnum*/
+            display: block;
+            margin: 15px auto;
+        }
+
+        .details-button {
+            background-color: #5dae1f;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .details-button:hover {
+            color: #5dae1f;
+            -webkit-box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 3px 3px 1px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .card-content p {
+            font-size: 11px;
+            /*Changed by ahatnum*/
+            font-weight: 400!important;
+            margin-top: 10px !important;
+        }
+
+        h5 {
+            margin: -1.2rem 0 .05rem 0!important;
+        }
+
+        .card-content .row {
+            /*margin-bottom: 0px;*/
+        }
+
+        .countdown {
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .countdown .measurements:first-child {
+            width: 19%;
+        }
+        /*.countdown .measurements:last-child {
+            width: 24%;
+        }*/
+        .countdown .measurements {
+            width: 27%;
+            /*margin-left: auto;*/
+            /*left: auto;
+            right: auto;*/
+            /*float: left;
+            display: inline-block;*/
+            text-align: center;
+            font-family: latoBold;
+            flex: auto !important
+        }
+
+        .measurements .measurements-number {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500 !important;
+            position: relative;
+            top: 20px;
+            color: #42B77A !important;
+        }
+
+        .measurements .measurements-text {
+            bottom: 40px;
+            position: relative;
+            color: #95A29B !important;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .measurements:nth-child(4) {
+            text-align: right;
+        }
+
+        .measurements:nth-child(4) .measurements-number {
+            text-align: right;
+        }
+
+        .measurements:nth-child(1) {
+            text-align: left;
+        }
+
+        .measurements:nth-child(1) .measurements-number {
+            text-align: left;
+        }
+        .measurements {
+            position: relative;
+        }
+
+        .measurements:after {
+            content: ':';
+            position: absolute;
+            bottom: 7px;
+            right: -4px;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--theme-color);
+        }
+        .measurements:last-child:after {
+            content: '';
+        }
+
+        @media (min-width: 768px) and (max-width: 1366px){
+            .measurements:after {
+            }
+            .measurements .measurements-number {
+                font-size: 15px;
+                top: 15px;
+            }
+            .measurements .measurements-text {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<app-root></app-root>
+
+</body>
+<script>
+     /*
+     * ================================= Sticky Menu Start =================================
+     */
+    $(window).scroll(function() {
+        $sticky = $("#menubar").offset().top;
+        $width = $(window).width();
+        if (window.pageYOffset >= $sticky) {
+            $("#menu").addClass("sticky");
+
+        } else {
+            $("#menu").removeClass("sticky");
+        }
+    });
+
+    /*
+     * ================================= Sticky Menu End =================================
+    //  */
+    // $("#first_tab").click(function() {
+    //     $("#tri").css("left", "12%");
+    // });
+    // $("#second_tab").click(function() {
+    //     $("#tri").css("left", "50%");
+    // });
+    // $("#third_tab").click(function() {
+    //     $("#tri").css("left", "84%");
+    // });
+
+    $(document).scroll(function() {
+        var y = $(this).scrollTop();
+        if (y > screen.height / 2) {
+            $('.goToTop').fadeIn();
+        } else {
+            $('.goToTop').fadeOut();
+        }
+        campStatResizer();
+    });
+       /*
+     * ================================= camp stat info size =================================
+     */
+    $(window).resize(function() {
+        campStatResizer();
+    });
+    campStatResizer();
+    function campStatResizer(){
+        $max = 0;
+        $('.camp-stat-info div').css('display','inline-block');
+        for(i=0;i<$('.camp-stat-info').length;i++){
+            $height = $('.camp-stat-info')[i].clientHeight;
+            if($height > $max){
+                $max = $height;
+            }
+        }
+        if($max<50){
+            $('.camp-stat-info div').css('display','inline-block');
+        } else{
+            $('.camp-stat-info div').css('display','block');
+        }
+    }
+     /*
+     * ================================= camp stat info size =================================
+     */
+</script>
+</html>

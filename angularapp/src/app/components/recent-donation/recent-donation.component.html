@@ -1,0 +1,38 @@
+<div class="row" *ngIf="donations?.length">
+    <div class="col s12 ">
+        <div class="card">
+            <div class="card-content">
+                <span class="camp-details-title">{{ 'recent_donations'| translate }}</span>
+                <div class="row donation-details" style="margin-bottom: 0;">
+                    <div class="col s12" *ngFor="let donation of donations">
+                        <div class="row" *ngIf="donation?.user;else offlineUser">
+                            <div class="col s4 img">
+                                <img src="{{donation?.user.profile.image_url}}" *ngIf="donation?.user.profile.image_url; else defaultPhoto">
+                                <ng-template #defaultPhoto>
+                                    <img src="assets/img/profile.png">
+                                </ng-template>
+                            </div>
+                            <div class="col s8 user-details">
+                                <div class="name" >{{ donation?.user.first_name }} {{ donation?.user.last_name }}</div>
+                                <div class="date">{{ donation?.donate_at|date:'mediumDate'}}</div>
+                                <div class="amount">৳ {{ (donation?.amount)?(donation?.amount | number):0 }}</div>
+                            </div>
+                        </div>
+                        <ng-template #offlineUser>
+                            <div class="row">
+                                <div class="col s4 img">
+                                    <img src="assets/img/profile.png">
+                                </div>
+                                <div class="col s8 user-details">
+                                    <div class="name" >{{ donation?.name }}</div>
+                                    <div class="date">{{ donation?.donate_at|date:'mediumDate'}}</div>
+                                    <div class="amount">৳ {{ (donation?.amount)?(donation?.amount | number):0 }}</div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

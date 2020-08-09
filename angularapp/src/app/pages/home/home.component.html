@@ -1,0 +1,203 @@
+<app-slider-home></app-slider-home>
+<app-large-category-list></app-large-category-list>
+<div class="call-section little-section donate-now">
+    <div class="container">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="call-text">
+                    {{'call_us' | translate}} <a href="tel:+8801872291300" class="white-text green-bg-selection">+(88) 01872 291 300</a> {{'or' | translate}}
+                    <br/>
+                    {{'email' | translate}} <a href="mailto:info@techlogicians.com" class="white-text green-bg-selection">INFO@TECHLOGICIANS.COM</a>
+                </div>
+                <div class="white-text green-bg-selection">
+                    {{ 'contact_us_text'|translate }}
+                </div>
+                <!-- <div class="start">
+                    <a class="waves-effect waves-light btn">
+                            Donate Now
+                    </a>
+                </div> -->
+            </div>
+    </div>
+</div>
+<app-highlighted-campaign-list></app-highlighted-campaign-list>
+<div class="client-section little-section what-people-say">
+    <div class="container">
+            <div class="center section-heading">
+                <div class="title-cat green-bg-selection" style="padding-top: 10px;">
+                    {{ 'what_people_say' | translate }}
+                </div>
+                <div class="break-line-what-people">
+                    <!--create by ahatnum-->
+                    <div class="line">
+                    </div>
+                    <div class="break">
+                        <div class="break-tile left">
+                        </div>
+                        <div class="break-tile right">
+                        </div>
+                    </div>
+                </div>
+                <div class="title-details green-bg-selection">
+                    {{ 'what_people_say_short_text' | translate }}
+                </div>
+            </div>
+            <div class="row responsive-people" style="margin-bottom: 0px">
+                <ngx-slick-carousel  #slickModal="slick-carousel" [config]="slideConfig"  (afterChange)="afterChange($event)" (init)="init($event)">
+
+                    <div ngxSlickItem class="slide col s12 m4 item">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col l3">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/John_D._Rockefeller_Jr._cph.3a03736.jpg/220px-John_D._Rockefeller_Jr._cph.3a03736.jpg" class="client-profile-photo"/>
+                                    </div>
+                                    <div class="col l9 client-intro">
+                                        <div class="name">
+                                            John D. Rockefeller Jr.
+                                        </div>
+                                        <div class="title">
+                                            American financier
+                                        </div>
+                                    </div>
+                                    <div class="col m12 description">
+                                        Charity is injurious unless it helps the recipient to become independent of it.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngxSlickItem class="slide col s12 m4 item">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col l3">
+                                        <img src="http://i.forbesimg.com/media/lists/quotebank/samuel-johnson_100x100.jpg" class="client-profile-photo"/>
+                                    </div>
+                                    <div class="col l9 client-intro">
+                                        <div class="name">
+                                            Samuel Johnson
+                                        </div>
+                                        <div class="title">
+                                            Writer
+                                        </div>
+                                    </div>
+                                    <div class="col m12 description">
+                                        Bounty always receives part of its value from the manner in which it is bestowed.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngxSlickItem class="slide col s12 m4 item">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col l3">
+                                        <img src="https://images.gr-assets.com/authors/1505979012p2/7189272.jpg" class="client-profile-photo"/>
+                                    </div>
+                                    <div class="col l9 client-intro">
+                                        <div class="name">
+                                            Michael Bassey Johnson
+                                        </div>
+                                        <div class="title">
+                                            Writer
+                                        </div>
+                                    </div>
+                                    <div class="col m12 description">
+                                        People can copy anything; your mode of dressing, the way you talk, walk, dance, sing, cry, but they will find it very hard to imitate the way you donate money.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngxSlickItem class="slide col s12 m4 item">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col l3">
+                                        <img src="https://images.gr-assets.com/authors/1507637870p2/6590179.jpg" class="client-profile-photo"/>
+                                    </div>
+                                    <div class="col l9 client-intro">
+                                        <div class="name">
+                                            Amit Kalantri
+                                        </div>
+                                        <div class="title">
+                                            Writer
+                                        </div>
+                                    </div>
+                                    <div class="col m12 description">
+                                        Donating a dollar from two dollars is bigger donation than donating a dollar from hundred dollars.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+            <div class="row">
+                <div class="col s12 people-arrow" style="text-align: right">
+                    <a class="waves-effect prev-people slick-arrow" (click)="slickPrev(true)" href="javascript:;" style="color: var(--header-main)">
+                            <i class="fa fa-angle-left">
+                            </i>
+                        </a>
+                    <a class="waves-effect next-people slick-arrow" (click)="slickNext(true)" href="javascript:;" style="color: var(--header-main)">
+                            <i class="fa fa-angle-right">
+                            </i>
+                        </a>
+                </div>
+            </div>
+            <!--stats-->
+        </div>
+</div>
+<div class="container">
+    <app-home-stat></app-home-stat>
+    <div class="center section-heading event-section">
+        <div class="title-cat">
+            {{ 'covid_19_news_and_events'| translate }}
+        </div>
+        <div class="break-line">
+                <!--create by ahatnum-->
+                <div class="line">
+                </div>
+                <div class="break">
+                    <div class="break-tile left">
+                    </div>
+                    <div class="break-tile right">
+                    </div>
+                </div>
+        </div>
+        <div class="title-details">{{ 'covid_19_short_text'| translate }}</div>
+    </div>
+    <div class="row category">
+        <div class="col s12 m6 upcoming" *ngFor="let event of events">
+            <a class="card waves-effect" [href]="event.href" target="_blank">
+                <div class="card-content">
+                    <div class="row" style="margin-bottom: 0px">
+                        <div class="col s4 upcoming-event">
+                            <img [src]="event.image" />
+
+                        </div>
+                        <div class="col s8 upcoming-event">
+                            <div class="upcoming-headline" title="Covid-19 HOV Donation Program">{{event.title}}</div>
+                            <div class="upcoming-description">
+                                {{(event.description.length > 100)? event.description.slice(0,100)+' ...' : event.description}}
+                            </div>
+                            <div class="camp-stat-info" *ngIf="event.time || event.location">
+                                <div *ngIf="event.time">
+                                    <i class="material-icons">access_time</i>
+                                    <span>{{event.time}}</span>
+                                </div>
+                                <div *ngIf="event.location">
+                                    <i class="material-icons">location_on</i>
+                                    <span>{{event.location}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<app-newsletter></app-newsletter>
+<app-footer></app-footer>

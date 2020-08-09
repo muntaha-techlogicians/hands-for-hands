@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="center section-heading">
+        <div class="title-cat">
+            {{ 'our_campaigns'| translate }}
+        </div>
+        <div class="break-line">
+                <!--create by ahatnum-->
+                <div class="line">
+                </div>
+                <div class="break">
+                    <div class="break-tile left">
+                    </div>
+                    <div class="break-tile right">
+                    </div>
+                </div>
+            </div>
+        <div class="title-details">{{ 'our_campaigns_short_text'| translate }}</div>
+    </div>
+    <div class="row">
+        <div class="col s12 campaign-arrow" style="text-align: right">
+            <a class="waves-effect prev-campaign slick-arrow" href="javascript:;" (click)="slickPrev(true)" style="color: var(--theme-color)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="waves-effect next-campaign slick-arrow" href="javascript:;" (click)="slickNext(true)" style="color: var(--theme-color)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="row campaign">
+        <ngx-slick-carousel  #slickModal="slick-carousel" [config]="slideConfig"  (afterChange)="afterChange($event)">
+            <app-campaign-item  ngxSlickItem class="slide" *ngFor="let campaign of highlightedCampaigns"
+                    campaignFeaturedImgSrc="{{  campaign.featured_image ? photobaseUrl +'/'+ campaign.featured_image : '/assets/img/no-image.png'}}"
+                    campaignTitle="{{ campaign.title }}"
+                    campaignProgress="{{ campaign.progress }}"
+                    campaignRaisedAmount="{{ campaign.total_donate }}"
+                    campaignGoalAmount="{{ campaign.amount }}"
+                    campaignShortDesc="{{ campaign.story }}"
+                    campaignSlug="{{ campaign.slug }}"
+                    [slick]="true"
+            ></app-campaign-item>
+        </ngx-slick-carousel>
+    </div>
+    <div class="row">
+            <div class="col s12 campaign-view-all">
+                <a class="btn waves-effect waves-light" routerLink="/campaigns">
+                       {{ 'view_all'| translate }}
+                    </a>
+            </div>
+    </div>
+</div>

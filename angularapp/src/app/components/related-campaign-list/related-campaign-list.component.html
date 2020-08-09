@@ -1,0 +1,33 @@
+<div class="row" *ngIf="campaigns?.length">
+    <div class="col s12 m12 l12">
+        <div class="card">
+            <div class="card-content other-campaign">
+                <span class="camp-details-title">{{ 'other_campaigns'| translate }}</span>
+                <div class="row mb-0">
+                    <div class="col s12 other-campaign-item" *ngFor="let campaign of campaigns">
+                        <div class="row">
+                            <div class="col s4 img">
+                                <img src="{{ photobaseUrl }}/{{ campaign?.featured_image }}">
+                            </div>
+                            <div class="col s8 campaign-info">
+                                <a class="title" routerLink="/{{campaign?.slug}}">{{ campaign?.title | capitalize}}</a>
+                                <!--<div class="date">4 feb 2017</div>-->
+                                <div class="donate">
+                                    <span class="raised" title="Total Raised" >
+                                        <span class="material-icons">flag</span>
+                                        <span>{{campaign?.total_donate | number}}</span>
+                                    </span>
+                                    <span class="goal" title="Goal Amount" *ngIf="campaign?.amount">
+                                        <span class="material-icons">payment</span>
+                                        <span>{{campaign?.amount | number}}</span>
+                                    </span>
+                                </div>
+                                <div class="days-left">{{ campaign?.end_date| amParse:'YYYY-MM-DD'|amDifference: today :'days' : true| number:'1.0-0' }} days left</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

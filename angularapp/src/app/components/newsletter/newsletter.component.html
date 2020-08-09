@@ -1,0 +1,36 @@
+<div class="call-section little-section newsletter">
+    <div class="container">
+        <div class="row" style="margin-bottom: 0;">
+            <div class="col m5 s12" style="color: white;padding: 5px 0;overflow: hidden;">
+                <div class="row" style="margin-bottom: 0;">
+                    <div class="col s2">
+                        <i class="fa fa-envelope-o" style="font-size:45px;">
+                            </i>
+                    </div>
+                    <div class="col s10" style="text-align: left;">
+                        <b style="font-size: 16px;" class="green-bg-selection">
+                            {{ 'newsletter_subscription'| translate }}
+                        </b>
+                        <br/>
+                        <span style="font-size: 11px;color: #d7f3e5;" class="green-bg-selection">
+                            {{ 'newsletter_short_text'| translate }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <form class="col m7 s12" style="padding: 5px 0;" #f="ngForm" (ngSubmit)="submitNewsletter(f)">
+                <div class="col m5 s12">
+                    <input id="name" placeholder="{{ 'name'| translate }}" type="text" name="name" ngModel #name="ngModel" required class="validate"/>
+                </div>
+                <div class="col m4 s12">
+                    <input id="email_address" placeholder="{{ 'email'| translate }}" type="email" name="email_address" ngModel #email_address="ngModel" required class="validate"/>
+                </div>
+                <div class="col m3 s12">
+                    <button class="waves-effect btnNewsletter" type="submit" name="action" [disabled]="!f.valid || formSubmitting">
+                        {{ 'sign_up'| translate }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

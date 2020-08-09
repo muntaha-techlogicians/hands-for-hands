@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://handsforhands.techlogicians.com/$1 [R=301,L]
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet|LinkedInBot|SkypeUriPreview)
+	RewriteRule ^(.*)$ https://techlogicians.com/fbmeta/?id=$1 [NC,L]
+	RewriteRule ^index\.html$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.html [L]
+</IfModule>

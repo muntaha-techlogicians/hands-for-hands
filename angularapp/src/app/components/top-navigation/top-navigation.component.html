@@ -1,0 +1,95 @@
+<nav class="top-header" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col m8 s7">
+                <div class="row">
+                    <div class="col m5 s12 phone">
+                        <i class="fa fa-phone">
+                        </i>
+                        <a href="tel:+8801872291300" class="white-text">+8801872291300</a>
+                    </div>
+                    <div class="col m7 s12 email">
+                        <i class="fa fa-envelope">
+                        </i>
+                        <a href="mailto:info@techlogicians.com" class="white-text">info@techlogicians.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right col m4 s5 social-icon">
+                <label class="button r" id="button-3">
+                    <input type="checkbox" class="checkbox" (change)="toggleLanguage($event)" [checked]="language=='bn'">
+                    <div class="knobs"></div>
+                    <div class="layer"></div>
+                </label>
+                <a class="social-icon-item fac" href="https://www.facebook.com/TechlogiciansSolutions/" target="_blank">
+                    <i class="fa fa-facebook">
+                    </i>
+                </a>
+                <!-- <a class="social-icon-item twi" href="javascript:;" target="_blank">
+                    <i class="fa fa-twitter">
+                    </i>
+                </a>
+                <a class="social-icon-item pin" href="javascript:;" target="_blank">
+                    <i class="fa fa-pinterest">
+                    </i>
+                </a>
+                <a class="social-icon-item dri" href="javascript:;" target="_blank">
+                    <i class="fa fa-dribbble">
+                    </i>
+                </a> -->
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="navbar-fixed" id="menubar">
+    <nav class="navbar" id="menu">
+        <div class="container">
+            <div class="row">
+                <a routerLink="/" class="brand-logo center"><img
+                        src="assets/img/bng-img/logo.png"><span>{{'hands_for_hands' | translate}}</span></a>
+                <a href="javascript:;" id="open_menu" (click)="toggleMenu()" (click)="clickedInside($event)" data-activates="mobile_menu" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+                <a href="javascript:;" id="close_menu" class="button-collapse">
+                    <i class="material-icons">clear</i>
+                </a>
+                <ul class="left hide-on-med-and-down">
+                    <li><a routerLink="/">{{'home' | translate}}</a></li>
+                    <li><a routerLink="/campaigns">{{'campaigns' | translate}}</a></li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <span *ngIf="isLoggedIn$|async as logged; then loggedin else notloggedin"></span>
+                    <ng-template #loggedin>
+                        <li><a routerLink="/user-panel/dashboard">{{'profile' | translate}}</a></li>
+                        <li><a (click)="logout()">{{'logout' | translate}}</a></li>
+                    </ng-template>
+                    <ng-template #notloggedin>
+                        <li><a routerLink="/login">{{'login' | translate}}</a></li>
+                        <li><a routerLink="/register">{{'register' | translate}}</a></li>
+                    </ng-template>
+                </ul>
+
+                <ul class="side-nav" id="mobile_menu" (click)="clickedInside($event)">
+                    <li class="sidebar-logo">
+                        <a routerLink="/" class="mobile-menu-item">
+                            <img src="assets/img/bng-img/logo.png">
+                            <span>{{'hands_for_hands' | translate}}</span>
+                        </a>
+                    </li>
+                    <li><a routerLink="/" class="mobile-menu-item waves-effect"><i class="material-icons">home</i> {{'home' | translate}}</a></li>
+                    <li><a routerLink="/campaigns" class="mobile-menu-item waves-effect"><i class="material-icons">insert_invitation</i> {{'campaigns' | translate}}</a></li>
+                    <span *ngIf="isLoggedIn$|async as logged; then mobileloggedin else mobilenotloggedin"></span>
+                    <ng-template #mobileloggedin>
+                        <li><a routerLink="/user-panel/dashboard" class="mobile-menu-item waves-effect"><i class="material-icons">account_circle</i> {{'profile' | translate}}</a></li>
+                        <li><a (click)="logout()" class="waves-effect"><i class="material-icons">power_settings_new</i> {{'logout' | translate}}</a> </li>
+                    </ng-template>
+                    <ng-template #mobilenotloggedin>
+                       <li><a routerLink="/login" class="mobile-menu-item waves-effect"><i class="material-icons">exit_to_app</i> {{'login' | translate}}</a></li>
+                       <li><a routerLink="/register" class="mobile-menu-item waves-effect"><i class="material-icons">how_to_reg</i> {{'register' | translate}}</a></li>
+                    </ng-template>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,110 @@
+<div class="banner">
+    <div class="redy" style="background: linear-gradient( rgba(93, 140, 116, 0.75), rgba(93, 140, 116, 0.75)), url(/assets/img/login.jpg) center/cover no-repeat;">
+        <div class="header-info">
+            <div class="header-title">
+                {{ 'login'| translate}}
+            </div>
+
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="col s12">
+                        <a routerLink="/" class="breadcrumb">{{ 'home'| translate}}</a>
+                        <a href="javascript:;" class="active">{{ 'login'| translate}}</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container" style="width: 75%">
+    <div class="row">
+        <div class="col l6 offset-l3 m8 offset-m2 s12">
+            <div class="card">
+
+                <div class="card-content">
+                    <div class="signup">
+                        <div class="row mb-0">
+                            <span style="font-size: 23px;">{{ 'welcome_back'| translate}}</span>
+                            <form class="col s12" style="margin-bottom: 0;" (ngSubmit)="loginFrom.form.valid && login()" #loginFrom="ngForm" novalidate>
+                                <div class="row">
+
+                                    <div class="input-field mb-10 col s12">
+                                        <input id="email" type="email" [(ngModel)]="model.email" #email="ngModel" name="email"  class="validate" required email="true"> 
+										<label for="email">{{ 'email'| translate}}</label>
+										<span  class="helper-text" data-error="wrong" data-success="right"></span>
+
+										<div *ngIf="email.invalid && (email.dirty || email.touched)"
+											class="alert alert-danger">
+
+											<div *ngIf="email.errors.required">
+												{{ 'email_required'| translate }}
+											</div>
+                                            <div *ngIf="email.errors.email">
+                                                {{ 'email_must'| translate }}
+                                            </div>
+
+										</div>
+                                    </div>
+                                    <div class="input-field mb-10 col s12">
+                                        <input id="password" type="password" class="validate" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+										<label for="password">{{ 'password'| translate}}</label>
+                                        <span class="helper-text" data-error="password required" data-success="right"></span>
+
+                                        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+											class="alert alert-danger">
+
+											<div *ngIf="password.errors.required">
+												{{ 'password_required'| translate }}
+											</div>
+
+										</div>
+                                    </div>
+                                    <div class="input-field col s6 left text-left">
+                                        <input type="checkbox" id="rememberme" name="rememberme" />
+                                        <label for="rememberme" class="transform-none">
+                                                <span>{{ 'remember_me'| translate}}</span>
+                                         </label>
+                                    </div>
+                                    <div class="input-field col s6 left text-right">
+                                        <a routerLink="/forgot-password" class="link">{{ 'forgot_password'| translate}}?</a>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <button [disabled]="!loginFrom.form.valid || loading" class="btn waves-effect waves-light signup-button" type="submit" name="action">{{ 'login'| translate}}</button>
+                                    </div>
+                                </div>
+
+
+								<div [hidden]="!submitted">
+
+								</div>
+                            </form>
+                            <div class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <button type="button" class="btn waves-effect waves-light fb-social-button" (click)="socialSignIn('facebook')" name="action">{{ 'facebook'| translate}}
+                                            <i class="fab fa-facebook-f left"></i>
+                                        </button>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <button type="button" class="btn waves-effect waves-light gplus-social-button" (click)="socialSignIn('google')" name="action">{{ 'google'| translate}}
+                                            <i class="fab fa-google left"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row mb-0">
+                                    <div class="input-field col s12">
+                                        <span> {{ 'no_user_account'| translate}}? <a routerLink="/register" class="link">{{ 'sign_up'| translate}}</a></span>
+                                    </div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

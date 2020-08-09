@@ -1,0 +1,28 @@
+<div class="row details-stat">
+        <div class="col m10 offset-m1 s12 ">
+            <div class="col s3">
+                <div class="stat-gap border">
+                    <div class="amount tooltipped" title="৳ {{ (homeStat?.target_fund)?(homeStat?.target_fund | number):0}}"> ৳ {{ homeStat?.target_fund | donateDigitFormat:2 }}</div>
+                    <div class="cause"> {{ 'target_fund'|translate }}</div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="stat-gap border">
+                    <div class="amount">{{ (homeStat?.total_donor)?(homeStat?.total_donor | number):0 }}</div>
+                    <div class="cause"> {{ 'total_donor'|translate }}</div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="stat-gap border">
+                    <div class="amount"> {{ (homeStat?.total_campaign)?(homeStat?.total_campaign | number):0 }}</div>
+                    <div class="cause">{{ 'total_campaign'|translate }}</div>
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="stat-gap">
+                    <div class="amount" title="৳ {{ (homeStat?.raised_fund)?(homeStat?.raised_fund | number):0}}"> ৳ {{ homeStat?.raised_fund | donateDigitFormat:2 }}</div>
+                    <div class="cause"> {{ 'raised_fund'| translate}}</div>
+                </div>
+            </div>
+        </div>
+</div>

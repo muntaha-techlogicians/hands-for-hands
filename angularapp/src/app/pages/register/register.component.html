@@ -1,0 +1,189 @@
+<div class="banner">
+    <div class="redy">
+        <div class="header-info">
+            <div class="header-title">
+                REGISTRATION
+            </div>
+
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="col s12">
+                        <a routerLink="/" class="breadcrumb">{{ 'home'| translate }}</a>
+                        <a href="javascript:;" class="active">{{ 'registration'| translate }}</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container" style="width: 75%">
+    <div class="row">
+        <div class="col l6 offset-l3 m8 offset-m2 s12">
+            <div class="card">
+
+                <div class="card-content">
+                    <div class="login">
+
+                        <div class="row mb-0">
+                            <span style="font-size: 23px;margin-bottom: 10px;display: inline-block;">{{ 'create_an_account'| translate }}</span>
+                            <form class="col s12" style="margin-bottom: 0;" (ngSubmit)="f.form.valid && register()"
+                                  #f="ngForm" novalidate [mustMatch]="['password1', 'password2']">
+                                <div class="row">
+                                    <div class="input-field mb-10 col s6">
+                                        <input id="first_name" type="text" class="validate"
+                                               required [(ngModel)]="model.first_name" #first_name="ngModel"
+                                               name="first_name">
+                                        <label for="first_name">{{ 'first_name'| translate }}</label>
+
+                                        <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)"
+                                             class="alert alert-danger">
+
+                                            <div *ngIf="first_name.errors.required">
+                                                {{ 'first_name_required'| translate }}
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="input-field mb-10 col s6">
+                                        <input id="last_name" required type="text" class="validate"
+                                               [(ngModel)]="model.last_name" #last_name="ngModel" name="last_name">
+                                        <label for="last_name">{{ 'last_name'| translate }}</label>
+                                        <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)"
+                                             class="alert alert-danger">
+
+                                            <div *ngIf="last_name.errors.required">
+                                                {{ 'last_name_required'| translate }}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="input-field mb-10 col s12">
+                                        <input id="email" type="email" class="validate" required
+                                               [(ngModel)]="model.email" #email="ngModel" name="email">
+                                        <label for="email">{{ 'email'| translate }}</label>
+
+                                        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                             class="alert alert-danger">
+
+                                            <div *ngIf="email.errors.required">
+                                                {{ 'email_required'| translate }}
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+<!--                                    <div class="input-field mb-10 col s12">-->
+<!--                                        <input id="username" type="text" class="validate"-->
+<!--                                               required [(ngModel)]="model.username" #username="ngModel"-->
+<!--                                               name="username">-->
+<!--                                        <label for="username">Username</label>-->
+
+<!--                                        <div *ngIf="username.invalid && (username.dirty || username.touched)"-->
+<!--                                             class="alert alert-danger">-->
+
+<!--                                            <div *ngIf="username.errors.required">-->
+<!--                                                Username is required.-->
+<!--                                            </div>-->
+
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+                                    <div class="input-field mb-10 col s12">
+                                        <input id="password1" type="password" class="validate"
+                                               required [(ngModel)]="model.password1" #password1="ngModel"
+                                               name="password1" minlength="8">
+                                        <label for="password1">{{ 'password'| translate }}</label>
+
+                                        <div *ngIf="password1.invalid && (password1.dirty || password1.touched)"
+                                             class="alert alert-danger">
+
+                                            <div *ngIf="password1.errors.required">
+                                                {{ 'password_required'| translate }}
+                                            </div>
+                                            <div *ngIf="password1.errors.minlength">
+                                                {{ 'password_chars'| translate }}
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="password2" type="password"
+                                               class="validate" required [(ngModel)]="model.password2"
+                                               #password2="ngModel" name="password2">
+                                        <label for="password2">{{ 'confirm_password'| translate }}</label>
+
+                                        <div *ngIf="password2.invalid && (password2.dirty || password2.touched)"
+                                             class="alert alert-danger">
+
+                                            <div *ngIf="password2.errors.required">
+                                                 {{ 'password_required'| translate }}
+                                            </div>
+                                            <div *ngIf="password2.errors.mustMatch">
+                                                {{ 'password_match'| translate }}
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- <div *ngIf="password2.valid && password1 != password2"
+                                            class="alert alert-danger">
+
+                                            <div *ngIf="password2.errors.required">
+                                                  Password didn't match.
+                                            </div>
+
+                                        </div> -->
+
+                                    </div>
+                                    <!-- <div class="input-field col s12">
+                                        <input id="comfirm_password" type="text" class="validate">
+                                        <label for="comfirm_password">Comfirm Password</label>
+                                    </div> -->
+                                    <div class="input-field col s12 left">
+                                        <input type="checkbox" id="subscribe" name="subscribe"/>
+                                        <!-- <label for="subscribe">
+                                                <span>Subscribe for our awesome newsletter</span>
+                                         </label> -->
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <button [disabled]="!f.form.valid"
+                                                class="btn waves-effect waves-light signup-button" type="submit"
+                                                name="action">{{ 'sign_up'| translate }}
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <button type="button" class="btn waves-effect waves-light fb-social-button"
+                                                (click)="socialSignIn('facebook')" name="action">{{ 'facebook'| translate }}
+                                            <i class="fab fa-facebook-f left"></i>
+                                        </button>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <button type="button" class="btn waves-effect waves-light gplus-social-button"
+                                                (click)="socialSignIn('google')" name="action">{{ 'google'| translate }}
+                                            <i class="fab fa-google left"></i>
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                                <div class="row mb-0">
+                                    <div class="input-field col s12">
+                                        <span> {{ 'already_have_an_account'| translate }}? <a routerLink="/login"class="link">{{ 'login'| translate }}</a></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

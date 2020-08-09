@@ -1,0 +1,316 @@
+<div class="banner">
+    <div class="redy"  [ngStyle]="breadcrumbBgStyle">
+        <div class="header-info">
+            <div class="header-title">
+                {{ campaign?.title }}
+            </div>
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="col s12">
+                        <a routerLink="/" class="breadcrumb">{{ 'home'| translate }}</a>
+                        <a routerLink="/campaigns" class="breadcrumb">{{ 'campaigns'| translate }}</a>
+                        <a style="cursor: pointer;" class="active">{{ campaign?.title | capitalize}}</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container" style="width: 75%">
+    <div class="row">
+        <div class="col s12 m8 l8 campdetails-main-content">
+            <div class="card">
+                <div class="card-image" *ngIf="coverImgUrl; else coverVideo">
+
+                    <img src="{{ photobaseUrl }}/{{ coverImgUrl }} ">
+                    <!--<span class="card-title tranparency">HELP SABINA FOR EDUCATION</span>                        -->
+                </div>
+                <ng-template #coverVideo>
+                    <div class="card-image" *ngIf="isVdoAvailable; else noImage">
+                        <iframe width="100%" height="315" [src]="coverVdoUrl | safe" allowfullscreen style="border: 0"></iframe>
+
+                        <!--<span class="card-title tranparency">HELP SABINA FOR EDUCATION</span>                        -->
+                    </div>
+                </ng-template>
+
+
+                <ng-template #noImage>
+                    <div class="card-image">
+                        <img src="/assets/img/no-image.png">
+                    </div>
+                </ng-template>
+
+                <div class="card-content" style="padding:10px 24px;position:relative">
+                    <div class="row" style="margin-bottom:0px;">
+                        <div class="col s12">
+                            <div class="camp-title-no">
+                                <span class="camp-details-title text-left">{{ campaign?.title }}</span>
+                                <span class="camp-no">{{ 'campaign'| translate }} #{{ campaign?.id }}</span>
+                            </div>
+                        </div>
+                        <div class="col s12 camp-stat-info">
+                            <div>
+                                <i class="material-icons">date_range</i><span>{{ campaign?.publish_date| date:'mediumDate' }} </span>
+                            </div>
+                            <div><i class="material-icons">favorite</i><span>{{ campaign?.campaign_donates.length }} {{ 'donation'| translate }} </span>
+                            </div>
+                        </div>
+                        <div class="col s12 d-flex justify-space-between align-items-center">
+                            <div class="campaign-tags">
+                                <span id="see_tag_overflow">...</span>
+                                <a class="camp-tag-icon"><i class="fa fa-tags"></i></a>
+                                <a class="camp-tag" *ngFor="let tag of campaign?.tags" href="javascript:;">{{ tag.name }}</a>
+                            </div>
+                            <div class="camp-details-share">
+                                <share-button [theme]="'circles-dark'" button="facebook" text="Share" [image]="photobaseUrl+'/'+campaign?.featured_image">
+                                </share-button>
+                                <share-button [theme]="'circles-dark'" button="twitter" text="Tweet" [image]="photobaseUrl+'/'+campaign?.featured_image">
+                                </share-button>
+                                <!---<share-button [theme]="'circles-dark'" button="google" text="Google"
+                                              [image]="photobaseUrl+'/'+campaign?.featured_image">
+                                </share-button>-->
+                            </div>
+                        </div>
+                        <!--<div class="col l4">-->
+                        <!--<div class="donation">-->
+                        <!--<div class="left">-->
+                        <!--<strong>$ 12k </strong> <span>collected of </span><strong>$ 20k </strong>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="progress z-depth-1">-->
+                        <!--<div class="determinate" style="width: 70%"></div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div style="text-align:center" class="col l4">-->
+                        <!--<a class="waves-effect waves-light btn btn-floating share z-depth-2" style="height:auto"><i class="fa fa-facebook" aria-hidden="true" style="line-height:none"></i></a>-->
+                        <!--<a class="waves-effect waves-light btn btn-floating share z-depth-2"><i class="fa fa-twitter" aria-hidden="true" style="line-height:none"></i></a>-->
+                        <!--<a class="waves-effect waves-light btn btn-floating share z-depth-2"><i class="fa fa-google-plus" aria-hidden="true" style="line-height:none"></i></a>-->
+                        <!--</div>-->
+                        <!--<div style="text-align:right" class="col l4">-->
+                        <!--<a href="campaign.html" class="z-depth-2 details-button waves-effect waves-light hvr-bounce-to-right">Donate Now<i style="font-size:16px; margin-left:5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="card-tabs tab-heading">
+                    <ul class="tabs tabs-fixed-width z-depth-1 campaign-tabs" materialize="tabs">
+                        <li class="tab"><a id="first_tab" class="active" href="#test4"><span class="desktop-view">{{ 'story'| translate }}</span><i class="material-icons tab-icon mobile-view">assignment</i></a></li>
+                        <li class="tab"><a id="second_tab" href="#test5"><span class="desktop-view">{{ 'documents'| translate }}</span><i class="material-icons tab-icon mobile-view">insert_photo</i></a></li>
+                        <li class="tab"><a id="third_tab" href="#test6"><span class="desktop-view">{{ 'comments'| translate }}</span><i class="material-icons tab-icon mobile-view">comment</i></a></li>
+                    </ul>
+                </div>
+                <div id="tri"></div>
+                <div class="card-content">
+                    <div id="test4">
+                        <div class="row">
+                            <div class="col s12">
+                                <span class="campaign-title">{{ 'story'| translate }}</span>
+                                <p [innerHTML]="campaign?.story"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="test5">
+                        <div class="campaign-document add-doc" *ngIf="documents.length > 0">
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="campaign-title">{{ 'documents'| translate }}</span>
+
+                                    <p *ngFor="let document of documents" style="font-size: 14px;font-weight: 900 !important;padding-left: 5px">{{ 'get_required_doc'| translate }} (<a download="{{ campaign?.title }}.pdf" target="_blank" href="{{ photobaseUrl }}/{{ document }}">PDF file</a>).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="hr"></div> -->
+                        <div class="campaign-photo-wrapper" *ngIf="images.length > 0">
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="campaign-title">{{ 'campaign_photoes'| translate }}</span>
+                                    <img *ngFor="let image of images" materialize="materialbox" class="materialboxed col s12 m6 l4 campaign-photo"
+                                         src="{{ photobaseUrl }}/{{ image }}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="campaign-video-wrapper" *ngIf="vedios.length > 0">
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="campaign-title">{{ 'campaign_history'| translate }}</span>
+                                    <div class="col s12 m6 l4 campaign-video" controls *ngFor="let vedio of vedios" >
+                                        <div class="video-box" (click) = "openModal(getYoutubeVideoId(vedio))">
+                                            <img [src]="'https://img.youtube.com/vi/'+getYoutubeVideoId(vedio)+'/0.jpg'">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" class="svg-inline--fa fa-youtube fa-w-18" role="img" viewBox="0 0 576 512">
+                                                <path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="campaign-references" *ngIf="links.length > 0">
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="campaign-title">{{ 'references'| translate }}</span>
+                                    <!--<ol>
+                                        <li *ngFor="let link of links"><a target="_blank" href="{{ link }}" class="text-break-word">{{ link }}</a></li>
+                                    </ol>-->
+                                    <ul class="reference-list">
+                                        <li class="reference" *ngFor="let link of links">
+                                            <a href="{{ link.url }}" target="_blank" *ngIf="link.linkmeta else noMeta">
+                                                <img class="thumb" src="{{ link.linkmeta.image }}">
+                                                <div class="hostname">{{getUrlHost(link.url)}}</div>
+                                                <div class="title">{{ link.linkmeta.title }}</div>
+                                                <div class="description">{{ link.linkmeta.description }}</div>
+                                                <!--<div class="footer">
+                                                    <img class="icon" src="https://prothomalo.com/favicon.ico">
+                                                    <span class="base-url">https://prothomalo.com</span>
+                                                </div>-->
+                                            </a>
+                                            <ng-template #noMeta>
+                                                <a href="{{ link.url }}" target="_blank">
+                                                    <img class="thumb" src="assets/img/no-image.png">
+                                                    <div class="hostname">{{getUrlHost(link.url)}}</div>
+                                                    <div class="title">No preview available</div>
+                                                    <div class="description">{{ link.url }}</div>
+                                                    <!--<div class="footer">
+                                                    <img class="icon" src="https://prothomalo.com/favicon.ico">
+                                                    <span class="base-url">https://prothomalo.com</span>
+                                                </div>-->
+                                                </a>
+                                            </ng-template>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="test6">
+                        <div class="row mb-0">
+                            <div class="col s12">
+                                <div class="reply">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <h5>{{ 'leave_a_comment'| translate }}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row"
+                                         *ngIf="isLoggedIn$|async as logged; else notloggedin">
+                                        <form class="col s12" #f="ngForm" (ngSubmit)="postComment(f)">
+                                            <div class="row">
+                                                <div class="col m12 s12">
+                                                    <textarea name="reply" ngModel required #reply="ngModel" class="materialize-textarea input-comment"></textarea>
+                                                    <label for="reply">{{ 'write_comment'| translate }}</label>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="text-align:center; margin-bottom: 0px">
+                                                <button class="btn waves-effect waves-light" type="submit" name="action">{{ 'post_comment'| translate }}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <ng-template #notloggedin>
+                                        <div class="row" style="margin-bottom: 0px">
+                                            <div class="col s12">
+                                                please <a class="login_link" [routerLink]="['/login']" [queryParams]="{returnUrl: currentUrl}">Login</a> to comment
+                                            </div>
+
+                                        </div>
+                                    </ng-template>
+                                </div>
+                                <div class="hr"></div>
+                            </div>
+                        </div>
+                        <!-- [class.height-auto]="commentPanelExpand" -->
+                        <div class="row comment-panel height-auto" style="margin-bottom: 0px">
+                            <div class="col s12">
+                                <div class="card-panel comment" *ngFor="let comment of comments?.results|paginate: { itemsPerPage: limit, currentPage: currentPage, totalItems: comments?.count}" >
+                                    <div class="row comment_first_part">
+                                        <div class="col s12">
+                                            <a href="javascript:;">
+                                                <div class="profile-img">
+                                                    <div class="bg-img"
+                                                         *ngIf="comment.user.profile.image_url"
+                                                         [ngStyle]="{'background':'url('+comment.user.profile.image_url+') no-repeat center/cover'}"></div>
+                                                    <div class="bg-img"
+                                                         *ngIf="!comment.user.profile.image_url"
+                                                         [ngStyle]="{'background':'url(assets/img/profile.png) no-repeat center/cover'}"></div>
+                                                </div>
+                                            </a>
+                                            <div class="name-time">
+                                                <a href="javascript:;"><span class="profile-name" style="">{{ comment.user.first_name }} {{ comment.user.last_name }}</span></a>
+                                            <span class="comment-time"
+                                                  style="">{{ comment.comment_at |date:'dd MMM, yyyy hh:mm a' }}</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row comment_second_part">
+                                        <div class="col s12">
+                                            <span class="comment_details">{{ comment.comment }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="more" *ngIf="!commentPanelExpand && comments?.results.length > 2"(click)="toggleCommentPanel()">
+                            <i class="material-icons">expand_more</i>
+                        </div> -->
+
+                        <pagination-template #p="paginationApi" autoHide="true" (pageChange)="pageChanged($event)">
+                            <ul class="pagination" style="text-align: center" *ngIf="p.pages.length > 1">
+                                <li class="" [class.disabled]="p.isFirstPage()"><a *ngIf="!p.isFirstPage()" (click)="p.previous()"><i class="material-icons">chevron_left</i></a></li>
+                                <li *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value" >
+                                    <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                                        <span>{{ page.label }}</span>
+                                    </a>
+                                    <a *ngIf="p.getCurrent() === page.value">
+                                        <span>{{ page.label }}</span>
+                                    </a>
+                                </li>
+                                <li class="waves-effect" [class.disabled]="p.isLastPage()"><a *ngIf="!p.isLastPage()"(click)="p.next()"><i class="material-icons">chevron_right</i></a></li>
+                            </ul>
+                        </pagination-template>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--right sided columns -->
+        <div class="col s12 m4 l4 campdetails-sidebar">
+            <!--donation stats -->
+            <app-campaign-donation-stat [progressBar]="progressBar" [recentDonation] ="recentDonation" [topDonation] = "topDonation" campaignId="{{ campaignID }}" slug="{{ slug }}" payment_info="{{ campaign?.payment_info }}" [packages]="campaign?.packages"></app-campaign-donation-stat>
+            <!--end donation stats-->
+            <!--countdonwn-->
+            <app-campaign-countdown endAt="{{ campaign?.end_date }}"></app-campaign-countdown>
+
+            <app-campaign-progress-bar #progressBar progress="{{ campaign?.progress }}" raised="{{ campaign?.total_donate}}" target="{{ campaign?.amount }}"></app-campaign-progress-bar>
+            <!--end countdown-->
+            <!--recent donation-->
+            <app-recent-donation #recentDonation campaignId="{{ campaignID }}"></app-recent-donation>
+            <!--end recent donation-->
+            <!--top donation-->
+            <app-top-donation #topDonation campaignId="{{ campaignID }}"></app-top-donation>
+            <!--end top donation-->
+            <!--our campgains-->
+            <app-small-category-list></app-small-category-list>
+            <!--end our campgins-->
+            <!--other campgains-->
+            <app-related-campaign-list campaignId="{{ campaignID }}"></app-related-campaign-list>
+            <!--end other campgins-->
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="youtubeVideoModal" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+    <div class="modal-content">
+        <iframe width="100%" src="" allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<app-footer></app-footer>

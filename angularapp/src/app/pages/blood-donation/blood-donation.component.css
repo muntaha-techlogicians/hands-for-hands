@@ -1,0 +1,507 @@
+/*Donate blood cover section start*/
+	.donate-blood-cover{
+		background-color: #E6F3F6;
+		padding: 30px 0;
+		display: flex;
+		align-items: center;
+		min-height: 600px;
+	}
+	.donate-blood-cover .headline{
+		color: #000000;
+		font-family: latoBold;
+		font-size: 24px;
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+	.donate-blood-cover .description{
+		color: #65766D;
+		font-family: lato;
+		font-size: 15px;
+		margin-top: 0;
+		margin-bottom: 20px;
+    	white-space: pre-line;
+	}
+	.donate-blood-cover img{
+		width: 100%;
+		max-height: 400px;
+		object-fit: contain;
+		object-position: right;
+	}
+	.donate-blood-cover .btn-group{
+		display: flex;
+	}
+
+	/*Responsive*/
+	@media only screen and (max-width: 600px) {
+		.donate-blood-cover{
+			min-height: auto;
+		}
+		.donate-blood-cover .headline{
+			text-align: center;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+		.donate-blood-cover .description{
+			font-size: 12px;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+		.donate-blood-cover .btn-group{
+			justify-content: center;
+		}
+	}
+/*Donate blood cover section end*/
+
+/*Our mission section start*/
+	.our-mission{
+		padding-bottom: 30px;
+	}
+	.our-mission .mission-text{
+		padding-right: 10%;
+	}
+	.our-mission .headline{
+		color: #1E392C;
+		font-family: latoBold;
+		font-size: 16px;
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+	.our-mission .description{
+		color: #65766D;
+		font-family: lato;
+		font-size: 14px;
+		margin-top: 0;
+		margin-bottom: 20px;
+		white-space: pre-line;
+	}
+
+	.our-mission img{
+		width: 100%;
+		max-height: 400px;
+		object-fit: contain;
+		object-position: right;
+	}
+	.our-mission .btn-group{
+		display: flex;
+	}
+	
+	/*Responsive*/
+	@media only screen and (max-width: 600px) {
+		.our-mission{
+
+		}
+		.our-mission .mission-text{
+			padding-right: .75rem;
+		}
+		.our-mission .headline{
+			/*text-align: center;*/
+			margin-bottom: 10px;
+		}
+		.our-mission .description{
+			font-size: 12px;
+			margin-bottom: 15px;
+			/*text-align: center;*/
+		}
+		.our-mission .btn-group{
+			/*justify-content: center;*/
+		}
+	}
+/*Our mission section end*/
+
+/*Blood donation help section start*/
+	.blood-donation-help{
+		background-image: url('/assets/img/blood-donor/donating-blood-helping-bg.png');
+		padding-bottom: 30px;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: bottom;
+	}
+	.blood-donation-help img{
+		width: 100%
+	}
+	.blood-donation-help .headline{
+		color: #1E392C;
+		font-family: latoBold;
+		font-size: 16px;
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+	.blood-donation-help .description{
+		color: #65766D;
+		font-family: lato;
+		font-size: 14px;
+		margin-top: 0;
+		margin-bottom: 20px;
+    	white-space: pre-line;
+	}
+	.blood-donation-help .btn-group{
+		display: flex;
+	}
+
+	/*Responsive*/
+	@media only screen and (max-width: 600px) {
+		.blood-donation-help{
+			background-image: none;
+			background-color: #e6f3f6;
+		}
+		.blood-donation-help .headline{
+			/*text-align: center;*/
+			margin-bottom: 5px;
+		}
+		.blood-donation-help .description{
+			font-size: 12px;
+			margin-bottom: 15px;
+			/*text-align: center;*/
+		}
+		.blood-donation-help .btn-group{
+			/*justify-content: center;*/
+		}
+	}
+/*Blood donation help section end*/
+
+/*Things need to know section start*/
+	.things-to-know{
+		padding-bottom: 60px;
+	}
+	.things-to-know .heading{
+		color: #1E392C;
+		font-family: latoBold;
+		font-size: 16px;
+		margin-bottom: 30px;
+	}
+	.things-to-know ul{
+		margin: 0;
+	}
+	.things-to-know ul li{
+		list-style: none;
+		color: #65766D;
+		font-size: 14px;
+		margin-bottom: 20px;
+		margin-top: 0;
+	}
+	.things-to-know ul li:before{
+		content: '';
+		width: 15px;
+		height: 10px;
+		background-image: url('/assets/img/blood-donor/things-need-to-know-point.png');
+		background-size: contain;
+		background-repeat: no-repeat; 
+		display: inline-block;
+		margin-right: 5px;
+	}
+	.things-to-know .video-box{
+		width: 100%;
+		height: 300px;
+		cursor: pointer;
+		position: relative;
+	}
+	.things-to-know .video-box:after{
+		content: '';
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(142, 142, 142, .5);
+		position: absolute;
+		transition: .3s;
+	}
+	.things-to-know .icon{    
+		position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%,-50%);
+	    z-index: 9;
+	    width: 100px;
+	    height: 100px;
+	    border-radius: 100%;
+	    display: flex;
+	    align-items: center;
+	    background: rgba(255, 255, 255, 0.6);
+	}
+	.things-to-know .icon svg{
+		color: #fff;
+		width: 50px;
+		height: 50px;
+	    left: 30px;
+	    position: absolute;
+	}
+	.things-to-know .video-box:hover .icon{
+		background: rgba(87, 191, 135, .5)
+	}
+
+	.things-to-know img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	#youtubeVideoModal {
+		max-height: 100%;
+	    border: 0;
+	    border-radius: 0;
+	    line-height: 0;
+	}
+	#youtubeVideoModal .modal-content{
+		padding: 0;
+		line-height: 0;
+	}
+	#youtubeVideoModal iframe{
+		border: 0;
+		height: 70vh;
+		background: #000
+	}
+
+	@media only screen and (max-width: 600px) {
+		.things-to-know{
+		}
+		.things-to-know .heading{
+			font-size: 14px;
+			margin-bottom: 20px;
+		}
+		.things-to-know ul li{
+			font-size: 12px;
+			margin-bottom: 14px;
+		}
+		.things-to-know .video-box{
+			height: 200px;
+		}
+		#youtubeVideoModal iframe{
+			height: 300px;
+		}
+
+	}
+/*Things need to know section end*/
+
+/*Donation Process section start*/
+	.donation-process{
+		background-image: url('/assets/img/blood-donor/donation-process-bg.png');
+		background-size: cover;
+	    background-repeat: no-repeat;
+	    background-position: left top;
+	    padding-bottom: 30px;
+	}
+	.donation-process .process-number{
+		background-image: url(/assets/img/blood-donor/donation-process.png);
+	    background-size: contain;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    font-family: lato;
+	    font-size: 18px;
+	    color: #44B47D;
+	    width: 30px;
+	    height: 30px;
+	    position: relative;
+	    user-select: none;
+	    margin-bottom: 10px;
+	}
+	.donation-process .process-name{
+		color: #6A6A6A;
+		display: inline-block;
+		font-family: latoBold;
+		font-size: 18px;
+		margin-bottom: 15px;
+		margin-top: 0;
+		display: inline-block;
+		position: relative;
+	}
+	.donation-process .process-name:before{
+		content: '';
+	    border: 1px solid #65766d;
+	    width: 24px;
+	    position: absolute;
+	    transform: translateY(-50%);
+	    top: 50%;
+	    right: -40px;
+	    margin-top: 0;
+	}
+	.donation-process .process-name:after{
+		content: '';
+	    border: 2px solid #65766d;
+	    display: inline-block;
+	    border-radius: 4px;
+	    height: 12px;
+	    position: absolute;
+	    transform: skewX(-33deg) translateY(-50%);
+	    top: 50%;
+	    right: -15px;
+	    margin-top: 0;
+	}
+	.donation-process .process-description{
+		color: #65766D;
+		font-family: lato;
+		font-size: 14px;
+		margin-bottom: 10px;
+		margin-top: 0;
+	}
+
+	/*Responsive*/
+	@media only screen and (max-width: 600px) {
+		.donation-process{
+			background-image: none;
+			background-color: #ebf4f6;
+		}
+		.donation-process .process-number{
+		    font-size: 14px;
+		}
+		.donation-process .process-name{
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		.donation-process .process-description{
+			font-size: 13px;
+			margin-bottom: 20px;
+		}
+	}
+/*Donation Process section end*/
+
+/*Part of great works section start*/
+	.part-of-great-works{
+		background: linear-gradient( rgba(69, 183, 127, 0.8), rgba(69, 183, 127, 0.8)), url("/assets/img/blood-donor/part-of-great-work-bg.png") center/cover no-repeat;
+		background-attachment: fixed;
+	    padding-bottom: 30px;
+	    box-shadow: 0px -12px 14px 0px rgba(164, 205, 220, 0.8)
+	}
+	.part-of-great-works .title-cat{
+		color: #F1F8FA
+	}
+	.part-of-great-works .break{
+	    background-color: #4fb77f;
+	}
+	.part-of-great-works .line{
+		border-color: #F1F8FA
+	}
+	.part-of-great-works .break-tile{
+		border-color: #F1F8FA
+	}
+	.part-of-great-works .title-details{
+		color: #F1F8FA
+	}
+/*Part of great works section end*/
+
+/*Donor feedback section start*/
+	.donor-feedback{
+		padding-bottom: 30px;
+	}
+	.donor-feedback .feedback-wrapper{
+		background-image: url(/assets/img/blood-donor/feedback-bg.png);
+	    padding: 70px;
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: contain;
+	    max-width: 800px;
+	    margin: auto;
+	}
+	.donor-feedback .feedback-wrapper .feedback{
+		position: relative;
+	    background-color: #fff;
+	    background-image: url(/assets/img/blood-donor/feedback-qoute-bg.png);
+	    background-repeat: no-repeat;
+	    background-position: 80% center;
+	    background-size: 180px;
+	    border-top-right-radius: 30px;
+	    border-bottom-left-radius: 30px;
+	    padding: 70px;
+	    min-height: 250px;
+	    box-shadow: 0px 0px 3px 0px rgba(104, 101, 101, 0.1);
+	    display: flex;
+	}
+	.donor-feedback .feedback-wrapper .feedback:before{
+		content: '';
+	    position: absolute;
+	    top: -26px;
+	    left: -41px;
+	    width: 355px;
+	    height: 140px;
+	    background-image: url('/assets/img/blood-donor/feedback-top-marker.png');
+	    background-repeat: no-repeat;
+	}
+	.donor-feedback .feedback-wrapper .feedback:after{
+		content: '';
+	    position: absolute;
+	    bottom: -45px;
+	    right: -40px;
+	    width: 220px;
+	    height: 150px;
+	    background-image: url('/assets/img/blood-donor/feedback-bottom-bg.png');
+	    background-repeat: no-repeat;
+	    background-size: contain;
+	    z-index: -1;
+	}
+	.donor-feedback .feedback-wrapper .feedback .feedbacker{
+		position: absolute;
+		top: -10px;
+		left: 30px;
+		color: #fff;
+		font-size: 16px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 260px;
+		white-space: nowrap;
+	}
+
+	.donor-feedback .feedback-wrapper .feedback .feedbacker:before{
+		content: '';
+		width: 50px;
+		height: 1px;
+		display: inline-block;
+		background: #fff;
+		margin-right: 10px;
+		margin-bottom: 4px;
+	}
+	.donor-feedback .feedback-wrapper .feedback .vertical-line{
+		width: 10px;
+		border-radius: 10px;
+		background: #45B67E;
+	}
+	.donor-feedback .feedback-wrapper .feedback .description{
+		padding: 35px 40px;
+		max-width: 500px;
+		font-size: 15px;
+		color: #65766D;
+		position: relative;
+	}
+	.donor-feedback .feedback-wrapper .feedback .description:before{
+		content: '';
+	    position: absolute;
+	    background-image: url(/assets/img/blood-donor/qoute-bg.png);
+	    width: 20px;
+	    height: 25px;
+	    top: 0;
+	    left: 100px;
+	    display: block;
+	    background-repeat: no-repeat;
+	    background-size: contain;
+	}
+
+	@media only screen and (max-width: 600px) {
+
+		.donor-feedback .feedback-wrapper {
+			padding: 50px 30px;
+			background-image: none;
+		}
+		.donor-feedback .feedback-wrapper .feedback:before{
+			top: -15px;
+			left: -25px;
+			width: 220px;
+			height: 140px;
+    		background-size: contain;
+		}
+		.donor-feedback .feedback-wrapper .feedback{
+			padding: 50px 25px;
+		}
+		.donor-feedback .feedback-wrapper .feedback .feedbacker{
+			top: -7px;
+		    left: 10px;
+		    font-size: 13px;
+		    width: 170px;
+		}
+		.donor-feedback .feedback-wrapper .feedback .feedbacker:before{
+			width: 20px;
+		}
+		.donor-feedback .feedback-wrapper .feedback .description{
+			padding: 25px 20px;
+			font-size: 13px;
+		}
+
+	}
+/*Donor feedback section end*/

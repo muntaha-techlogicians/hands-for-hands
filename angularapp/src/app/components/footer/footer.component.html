@@ -1,0 +1,120 @@
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row" style="margin-bottom: 0">
+                <div class="col l5 m5 s12 donation-about-footer">
+                    <a class="brand-logo" routerLink="/" style="filter:grayscale(1)">
+                        <img src="assets/img/bng-img/logo.png" />
+                        <span style="color:#fff">{{ 'hands_for_hands'| translate }}</span>
+                    </a>
+                    <p>
+                        {{ 'hands_for_hands_footer_text'| translate }}
+                    </p>
+                    <div class="social-icon">
+                        <a class="social-icon-item fac" href="https://www.facebook.com/TechlogiciansSolutions/" target="_blank">
+                            <i class="fa fa-facebook">
+                            </i>
+                        </a>
+                        <!-- <a class="social-icon-item twi" href="javascript:;" target="_blank">
+                            <i class="fa fa-twitter">
+                            </i>
+                        </a>
+                        <a class="social-icon-item pin" href="javascript:;" target="_blank">
+                            <i class="fa fa-pinterest">
+                            </i>
+                        </a>
+                        <a class="social-icon-item dri" href="javascript:;" target="_blank">
+                            <i class="fa fa-dribbble">
+                            </i>
+                        </a> -->
+                    </div>
+                </div>
+                <div class="col l2 m3 s12">
+                    <h6>
+                        {{ 'useful_links'| translate }}
+                    </h6>
+                    <!--<img src="img/logo.png"><div>Donation</div>-->
+                    <ul>
+                        <li>
+                            <a routerLink="/">
+                                {{ 'home'| translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/campaigns">
+                                {{ 'campaigns'| translate }}
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="javascript:;">
+                                Event
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                Categories
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+                <!-- <div class="col l2 m3 s12">
+                    <h6>
+                        YOUR HELP
+                    </h6>
+                    <img src="img/logo.png"><div>Donation</div>
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                Leave a Legacy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                Monthly Giving
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                One Time Donation
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+                <div class="col l5 m4 s12 instagram-feed">
+                    <div class="col s12" style="padding-top: 0">
+                        <h6>
+                            {{ 'campaign_images'| translate }}
+                        </h6>
+                    </div>
+                    <ng-template ngFor let-campaign [ngForOf]="highlightedCampaigns" let-i="index">
+                        <div class="col s4" *ngIf="campaign.featured_image && i < 6">
+                            <a routerLink="/{{ campaign.slug }}" title="{{campaign.title}}">
+                                <img src="{{photobaseUrl +'/'+ campaign.featured_image}}" alt="{{campaign.title}}"/>
+                            </a>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mini-footer">
+        <div class="container">
+            <div class="row" style="margin-bottom: 0;position: relative;">
+                <div class="col s12 copyright">
+                    © Copyright
+                    <a href="http://techlogicians.com/" style="color: var(--theme-color)">
+                        {{ 'techlogicians_solutions'| translate }}
+                    </a> {{currentYear}}
+                </div>
+                <div class="goToTop">
+                    <a fragment="top" routerLink="." id="scrollTop">
+                        <i class="material-icons" style="display: inline-block;">
+                            arrow_upward
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
