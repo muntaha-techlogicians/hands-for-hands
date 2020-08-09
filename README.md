@@ -1,3 +1,3 @@
-**Hands for Hands**
+**Lite version of *Hands for Hands***
 - Django 
 - Angular
